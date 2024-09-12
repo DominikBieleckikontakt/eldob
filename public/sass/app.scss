@@ -14,6 +14,7 @@
 
 nav {
   font-family: "Montserrat", sans-serif;
+  background-color: white;
 
   ul {
     width: 100%;
@@ -26,11 +27,6 @@ nav {
       font-weight: bold;
     }
   }
-
-  .a__link {
-
-  }
-
 }
 
 .nav__container {
@@ -80,3 +76,7 @@ nav {
   height: 45px;
 }
 
+.banner__container img {
+  max-width: 100%;
+  height: 80vh;
+}

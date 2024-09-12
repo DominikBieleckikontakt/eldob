@@ -9,7 +9,7 @@
   @vite(['public/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg">
+  <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container-fluid nav__container">
       <a href="/" class="logo__container navbar-brand">
         <img alt="Logo Eldob" src="{{ asset('img/logo.png') }}" class="logo">
@@ -19,12 +19,12 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <x-nav-link href="#" class="a__link {{ request()->is('/') ? 'active' : '' }}">Oferta</x-nav-link>
-          <x-nav-link href="#" class="a__link {{ request()->is('/sales') ? 'active' : '' }}">Sprzedaż</x-nav-link>
-          <x-nav-link href="#" class="a__link {{ request()->is('/realizations') ? 'active' : '' }}">Realizacje</x-nav-link>
-          <x-nav-link href="#" class="a__link {{ request()->is('/what') ? 'active' : '' }}">Czym się zajmujemy</x-nav-link>
-          <x-nav-link href="#" class="a__link {{ request()->is('/contact') ? 'active' : '' }}">Kontakt</x-nav-link>
-          <x-nav-link href="#" class="a__link {{ request()->is('/pricing') ? 'active' : '' }}">Wycena</x-nav-link>
+          <x-nav-link href="/offer" class="a__link {{ request()->is('/offer') ? 'active' : '' }}">{{ __('messages.offer') }}</x-nav-link>
+          <x-nav-link href="#" class="a__link {{ request()->is('/sales') ? 'active' : '' }}">{{ __('messages.sales') }}</x-nav-link>
+          <x-nav-link href="#" class="a__link {{ request()->is('/realizations') ? 'active' : '' }}">{{ __('messages.realizations') }}</x-nav-link>
+          <x-nav-link href="#" class="a__link {{ request()->is('/what') ? 'active' : '' }}">{{ __('messages.what') }}</x-nav-link>
+          <x-nav-link href="#" class="a__link {{ request()->is('/contact') ? 'active' : '' }}">{{ __('messages.contact') }}</x-nav-link>
+          <x-nav-link href="#" class="a__link {{ request()->is('/quotation') ? 'active' : '' }}">{{ __('messages.quotation') }}</x-nav-link>
         </ul>
       </div>
     </nav>

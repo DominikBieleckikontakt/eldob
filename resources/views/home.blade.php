@@ -1,0 +1,50 @@
+<x-layout>
+    <x-slot:title>Eldob</x-slot:title>
+    <div class="banner__container">
+        <img src="{{ asset('img/banner.png') }}" alt="banner">
+    </div>
+    <div>d</div>
+    <div>d</div>
+    <div>d</div>
+    <div>d</div>
+    <div>d</div>
+    <div>d</div>
+    <div>d</div>
+    <div>d</div>
+    <div>d</div>
+    <div>d</div>
+    <div>d</div>
+    <div>d</div>
+    <div>d</div>
+    <div>d</div>
+    <div>d</div>
+    <div>d</div>
+    <div>d</div>
+    <div>d</div>
+    <div>d</div>
+    <div>d</div>
+    <div>d</div>
+    <div>d</div>
+    <div>d</div>
+    <div>d</div>
+    <div>d</div>
+    <div>d</div>
+    <div>d</div>
+    <div>d</div>
+    <div>d</div>
+    <div>d</div>
+    <div>d</div>
+    <div>d</div>
+    <div>d</div>
+    <div>d</div>
+    <div>d</div>
+    <div>d</div>
+    <div>d</div>
+    <div>d</div>
+    <div>d</div>
+    <div>d</div>
+    <div>d</div>
+    <div>d</div>
+    <div>d</div>
+    <div>d</div>
+</x-layout>
