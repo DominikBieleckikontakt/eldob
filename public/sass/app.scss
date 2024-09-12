@@ -1,0 +1,82 @@
+@import 'bootstrap/scss/bootstrap';
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --primary-color: rgb(247, 196, 37);
+}
+
+*, html {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+nav {
+  font-family: "Montserrat", sans-serif;
+
+  ul {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 1.8rem;
+
+    li {
+      font-weight: bold;
+    }
+  }
+
+  .a__link {
+
+  }
+
+}
+
+.nav__container {
+  margin: 0 5rem;
+  padding: 1rem 0;
+}
+
+@media (max-width: 1200px) {
+  .nav__container {
+    margin: 0 3rem;
+    padding: 1rem 0;
+  }
+}
+
+@media (max-width: 990px) {
+  nav {
+    ul {
+      width: 100%;
+      display: flex;
+      justify-content: left;
+      align-items: start;
+      gap: 2rem;
+      margin-top: 1rem;;
+    }
+  }
+
+  #navbarNav {
+    position: absolute;
+    top: 5rem;
+    width: 100%;
+    z-index: 10;
+    background-color: white;
+    padding: 1rem;
+  }
+
+  .nav__container {
+    margin: 0;
+    padding: 1rem 0;
+  }
+  
+  .nav__container a, .nav__container button {
+    margin: 0 1.5rem; 
+  }
+}
+
+.logo {
+  height: 45px;
+}
+
