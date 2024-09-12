@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ $title }}</title>
-  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-  @vite(['public/sass/app.scss', 'resources/js/app.js'])
+  @vite(['public/sass/app.scss', 'resources/js/app.js', 'public/js/app.js'])
 </head>
 <body>
   <nav class="navbar navbar-expand-lg fixed-top">

@@ -7,4 +7,8 @@ return [
     'what' => 'What we do',
     'contact' => 'Contact',
     'quotation' => 'Quotation',
+
+    'wholesale' => 'Wholesale and retail sales',
+    'wholesale_text' => 'Cables and wires, modular devices, electrical switchboards, LED lighting, lighting fixtures, installation equipment, lightning protection equipment, power equipment, emergency lighting, trays, and more...',
+    'see_more' => 'Read more',
 ];
