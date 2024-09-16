@@ -467,7 +467,6 @@
             <div class="select__container">
                 <label for="budzet">Orientacyjny budżet przeznaczony na realizację (netto): </label>
                 <select required="" name="budzet" id="budzet" style="display: block !important">
-                    <option value="">--Prosimy wybrać--</option>
                     <option value="600">do 600 PLN</option>
                     <option value="1200">do 1200 PLN</option>
                     <option value="2000">do 2000 PLN</option>

@@ -1,4 +1,5 @@
 const elements = document.querySelectorAll(".offer__card");
+const realizationEleements = document.querySelectorAll(".realizations__item");
 
 const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry) => {
@@ -10,6 +11,10 @@ const observer = new IntersectionObserver((entries, observer) => {
 });
 
 elements.forEach((element) => {
+    observer.observe(element);
+});
+
+realizationEleements.forEach((element) => {
     observer.observe(element);
 });
 
