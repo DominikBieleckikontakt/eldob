@@ -4,16 +4,16 @@
         <div class="swiper-wrapper">
         <div class="swiper-slide">
             <x-banner src="{{ asset('img/banner.png') }}">
-                <x-slot:title>{{ __('messages.wholesale') }}</x-slot>
-                {{ __('messages.wholesale_text') }}
-                <x-slot:button>{{ __('messages.see_more') }}</x-slot:button>
+                <x-slot:title>Sprzedaż hurtowa i detaliczna</x-slot>
+                Kable i przewody, aparatura modułowa, rozdzielnice elektryczne, oświetlenie LED, oprawy oświetleniowe, osprzęt instalacyjny, osprzęt odgromowy, osprzęt siłowy, oświetlenie awaryjne, koryta i inne...
+                <x-slot:button>Czytaj więcej</x-slot:button>
             </x-banner>
         </div>
         <div class="swiper-slide">
             <x-banner src="{{ asset('img/banner.png') }}">
-                <x-slot:title>{{ __('messages.instalations') }}</x-slot>
-                {{ __('messages.instalations_text') }}
-                <x-slot:button>{{ __('messages.see_more') }}</x-slot:button>
+                <x-slot:title>Instalacje elektryczne, telewizyjne, telefoniczne</x-slot>
+                Wykonujemy instalacje elektryczne w nowych budynkach przy inwestycjach deweloperskich, biurowcach, halach produkcyjnych jak i w mieszkaniach oraz domach jednorodzinnych.
+                <x-slot:button>Czytaj więcej</x-slot:button>
             </x-banner>
         </div>
         <div class="swiper-slide">
@@ -27,28 +27,14 @@
         <div class="swiper-pagination"></div>
     </div>
 
-    <!-- SWIPER SCRIPT -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-        var swiper = new Swiper(".mySwiper", {
-        spaceBetween: 30,
-        autoplay: {
-            delay: 5000,
-        },
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-        });
-    </script>
     <section class="offer__section">
         <x-heading>
             <x-slot:subtitle>Co potrafimy zrobić?</x-slot>
-            Nasza Oferta
+            Nasza Oferta<span class="dot">.</span>
         </x-heading>
-        <div class="offer__gallery">
+        <div class="offer__grid container">
             <div class="offer__card slideIn">
-                <a href="#">
+                <a href="/oferta/1">
                     <img src="{{ asset('img/offer_image.png') }}" alt="offer">
                     <div class="offer__text">
                         <h4>Instalacje Teletechniczne</h3>
@@ -57,7 +43,7 @@
                 </a>
             </div>
             <div class="offer__card slideIn">
-                <a href="#">
+                <a href="/oferta/1">
                     <img src="{{ asset('img/offer_image.png') }}" alt="offer">
                     <div class="offer__text">
                         <h4>Instalacje Teletechniczne</h3>
@@ -66,7 +52,7 @@
                 </a>
             </div>
             <div class="offer__card slideIn">
-                <a href="#">
+                <a href="/oferta/1">
                     <img src="{{ asset('img/offer_image.png') }}" alt="offer">
                     <div class="offer__text">
                         <h4>Instalacje Teletechniczne</h3>
@@ -75,12 +61,17 @@
                 </a>
             </div>
         </div>
-        <button>Czytaj więcej</button>
+        <div class="btn__container">
+            <button>
+                <a href="/oferta">Czytaj więcej</a>
+            </button>
+        </div>
     </section>
+    
     <section class="realization">
         <x-heading>
             <x-slot:subtitle>Co już zrobiliśmy?</x-slot>
-            Nasze Realizacje
+            Nasze Realizacje<span class="dot">.</span>
         </x-heading>
         <div class="realization__section">
             <div>
