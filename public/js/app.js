@@ -1,5 +1,50 @@
+    const customSelect = document.querySelector('.custom-select');
+    const selectedItem = customSelect.querySelector('.selected-item');
+    const selectedImage = document.getElementById('selectedImage');
+    const selectedText = document.getElementById('selectedText');
+    const dropdownList = customSelect.querySelector('.dropdown-list');
+    const selectElement = document.getElementById('customSelect');
+
+    // Set default value (e.g., first option)
+    const defaultOption = customSelect.querySelector('.dropdown-item[data-value="1"]');
+    const defaultImageSrc = defaultOption.querySelector('img').src;
+    const defaultText = defaultOption.querySelector('span').textContent;
+    selectedImage.src = defaultImageSrc;
+    selectedText.textContent = defaultText;
+    selectElement.value = defaultOption.getAttribute('data-value'); // Set hidden select default value
+
+    // Toggle dropdown
+    selectedItem.addEventListener('click', () => {
+        customSelect.classList.toggle('active');
+    });
+
+    // Handle dropdown item click
+    dropdownList.addEventListener('click', (e) => {
+        if (e.target.closest('.dropdown-item')) {
+            const item = e.target.closest('.dropdown-item');
+            const value = item.getAttribute('data-value');
+            const imgSrc = item.querySelector('img').src;
+            const text = item.querySelector('span').textContent;
+
+            selectedImage.src = imgSrc; // Update selected image
+            selectedText.textContent = text; // Update selected text
+            selectElement.value = value; // Update hidden select value
+            customSelect.classList.remove('active'); // Close dropdown
+        }
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!customSelect.contains(e.target)) {
+            customSelect.classList.remove('active');
+        }
+    });
+
+
 const elements = document.querySelectorAll(".offer__card");
-const realizationEleements = document.querySelectorAll(".realizations__item");
+const realizationElements = document.querySelectorAll(".realizations__item");
+const referencesElements = document.querySelectorAll('.references__item');
+const contactElements = document.querySelectorAll('.contact-item');
 
 const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry) => {
@@ -14,8 +59,31 @@ elements.forEach((element) => {
     observer.observe(element);
 });
 
-realizationEleements.forEach((element) => {
+realizationElements.forEach((element) => {
     observer.observe(element);
+});
+
+referencesElements.forEach((element) => {
+    observer.observe(element);
+});
+
+contactElements.forEach((element) => {
+    observer.observe(element);
+});
+
+$(document).ready(function() {
+    function formatOption(option) {
+        if (!option.id) return option.text; // No need to show the image if no ID
+        
+        var img = $(option.element).data('image');
+        var optionText = '<img src="' + img + '" style="width: 20px; height: 20px; margin-right: 10px;" />' + option.text;
+        return $(optionText);
+    }
+
+    $('#imageSelect').select2({
+        templateResult: formatOption,
+        templateSelection: formatOption
+    });
 });
 
 var swiper = new Swiper(".mySwiper", {

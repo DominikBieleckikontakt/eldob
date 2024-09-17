@@ -6,7 +6,10 @@
   <title>{{ $title }}</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   @vite(['public/sass/app.scss', 'resources/js/app.js', 'public/js/app.js'])
+  <link rel="shortcut icon" href="https://eldob.pl/src_eldob/img/eldob/ikona.ico">
 </head>
 <body>
   <nav class="navbar navbar-expand-xl fixed-top">
@@ -15,16 +18,39 @@
         <img alt="Logo Eldob" src="{{ asset('img/logo.png') }}" class="logo">
       </a>
       <div class="btns__container">
-        <div class="language-select-container smaller">
-            <select id="languageSwitcher" class="language-switcher">
-                <option value="en" data-flag="flags/us.svg">en</option>
-                <option value="pl" data-flag="flags/fr.svg">pl</option>
-                <option value="cz" data-flag="flags/es.svg">cz</option>
-            </select>
-        </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+        <div class="language-select-container bigger">
+          <div class="custom-select m-auto">
+            <div class="selected-item">
+                <!-- Default image and text will be set here by JavaScript -->
+                <img src="" alt="" id="selectedImage" style="max-width: 20px; margin-inline: auto;">
+                <span id="selectedText"></span>
+                <span>&#9662;</span> <!-- Down arrow -->
+            </div>
+            <div class="dropdown-list">
+                <div class="dropdown-item" data-value="1">
+                    <img src="{{ asset('icons/uk_icon.png') }}" alt="en">
+                    <span></span>
+                </div>
+                <div class="dropdown-item" data-value="2">
+                    <img src="{{ asset('icons/poland_icon.png') }}" alt="pl">
+                    <span></span>
+                </div>
+                <div class="dropdown-item" data-value="3">
+                    <img src="{{ asset('icons/german_icon.png') }}" alt="de">
+                    <span></span>
+                </div>
+            </div>
+            <!-- Hidden select for form submission -->
+            <select name="options" id="customSelect">
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+            </select>
+        </div>
+      </div>
       </div>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -37,13 +63,6 @@
           <x-nav-link href="/kalkulator-wykonania-instalacji-elektrycznej" class="a__link a__btn {{ request()->is('kalkulator-wykonania-instalacji-elektrycznej') ? 'active' : '' }}">Wycena</x-nav-link>
         </ul>
       </div>
-      <div class="language-select-container bigger">
-        <select id="languageSwitcher" class="language-switcher">
-            <option value="en" data-flag="flags/us.svg">en</option>
-            <option value="pl" data-flag="flags/fr.svg">pl</option>
-            <option value="cz" data-flag="flags/es.svg">cz</option>
-        </select>
-    </div>
     </nav>
     </div>
     <main>
@@ -53,7 +72,6 @@
       <div class="footer">
         <div>
           <div class="footer__logo-container">
-            <h4>O nas</h4>
             <a href="/">
               <img src="{{ asset('img/logo.png') }}" alt="Eldob Logo">
             </a>
@@ -108,6 +126,15 @@
                 <a href="mailto:sprzedaz@eldob.pl">sprzedaz@eldob.pl</a>
               </li>
             </ul>
+            <p class="mt-3">
+              NIP: 5482737901
+            </p>
+            <p>
+              REGON: 38954041000000
+            </p>
+            <p>
+              KRS: 0000912461
+            </p>
             <p class="mt-3">43-400 Cieszyn</p>
             <p>ul. Mała 3</p>
           </div>

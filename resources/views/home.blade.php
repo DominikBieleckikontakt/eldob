@@ -104,8 +104,8 @@
     </section>
     <section class="contact__form__section home">
         <x-heading>
-            <x-slot:subtitle>Skontaktuj się z nami</x-slot>
-            Wypełnij formularz<span class="dot">.</span>
+            <x-slot:subtitle>Wypełnij formularz</x-slot>
+            Skontaktuj się z nami<span class="dot">.</span>
         </x-heading>
         <form>
             <div class="form__container">
