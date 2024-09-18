@@ -1,3 +1,36 @@
+    var swiper = new Swiper(".mySwiper", {
+        spaceBetween: 30,
+        autoplay: {
+            delay: 5000,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+    });
+
+    var swiper2 = new Swiper(".mySwiper2", {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        autoplay: {
+            delay: 3000
+        },
+        pagination: {
+          el: ".swiper-pagination2",
+          clickable: true,
+        },
+        breakpoints: {
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+            },
+            1024: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+            }
+        }
+      });
+    
     const customSelect = document.querySelector('.custom-select');
     const selectedItem = customSelect.querySelector('.selected-item');
     const selectedImage = document.getElementById('selectedImage');
@@ -84,17 +117,6 @@ $(document).ready(function() {
         templateResult: formatOption,
         templateSelection: formatOption
     });
-});
-
-var swiper = new Swiper(".mySwiper", {
-    spaceBetween: 30,
-    autoplay: {
-        delay: 5000,
-    },
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
 });
 
 // Pobierz wszystkie obrazki z galerii i overlay

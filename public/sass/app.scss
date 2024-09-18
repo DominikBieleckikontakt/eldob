@@ -223,12 +223,13 @@ nav {
 .banner__text {
     position: absolute;
     top: 50%;
-    left: 3rem;
+    left: 0;
+    right: 0;
+    margin-inline: auto;
     transform: translateY(-50%);
     color: white;
     z-index: 2;
-    max-width: 50%;
-
+    max-width: 1100px;
     h1 {
         margin: 0 0 1rem 0;
         color: var(--primary-color);
@@ -310,7 +311,7 @@ nav {
 // HEADING COMPONENT
 
 .heading {
-    margin: 5rem 0;
+    margin: 2.5rem 0;
     text-align: center;
 
     p {
@@ -625,6 +626,10 @@ nav {
     margin-top: 3rem;
     margin-bottom: 5rem;
 
+    .heading {
+        margin-bottom: 2.5rem;
+    }
+
     >div {
         margin: 0;
     }
@@ -859,6 +864,10 @@ footer {
 
 .offer__section {
     display: grid;
+
+   .swiper {
+    width: 100%;
+   }
 
     .btn__container {
         width: 100%;
@@ -1464,6 +1473,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 6rem;
 
     >div {
         transform: skewY(2deg);
