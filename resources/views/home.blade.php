@@ -66,27 +66,6 @@
                 </a>
             </div>
         </div>
-        <!-- <div class="offer__grid">
-            <a href="/oferta/1" class="offer__card slideIn">
-                <img src="{{ asset('img/offer_image.png') }}" alt="offer">
-                <h3>Instalacje Teletechniczne</h3>
-                <p>(instalacje niskoprądowe) w odróżnieniu od instalacji tzw. elektrycznych, działają na niskich napięciach prądu (np. 12V lub 24V).</p>
-                <button>Sprawdź</button>
-            </a>
-            <a href="/oferta/1" class="offer__card slideIn">
-                <img src="{{ asset('img/offer_image.png') }}" alt="offer">
-                <h3>Instalacje Teletechniczne</h3>
-                <p>(instalacje niskoprądowe) w odróżnieniu od instalacji tzw. elektrycznych, działają na niskich napięciach prądu (np. 12V lub 24V).</p>
-                <button>Sprawdź</button>
-            </a>
-            <a href="/oferta/1" class="offer__card slideIn">
-                <img src="{{ asset('img/offer_image.png') }}" alt="offer">
-                <h3>Instalacje Teletechniczne</h3>
-                <p>(instalacje niskoprądowe) w odróżnieniu od instalacji tzw. elektrycznych, działają na niskich napięciach prądu (np. 12V lub 24V).</p>
-                <button>Sprawdź</button>
-            </a>
-        </div> -->
-
         <div class="btn__container">
             <button>
                 <a href="/oferta">Czytaj więcej</a>
