@@ -65,3 +65,7 @@ Route::get('/kalkulator-wykonania-instalacji-elektrycznej', function () {
 
 //     return redirect()->back();
 // });
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
