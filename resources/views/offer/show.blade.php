@@ -1,8 +1,23 @@
 <x-layout>
     <x-slot:title>Oferta</x-slot:title>
-    <x-banner src="{{ asset('img/banner.png') }}">
+    <!-- <x-banner src="{{ asset('img/banner.png') }}">
         <x-slot:title>Instalacje elektryczne</x-slot>
-    </x-banner>
+    </x-banner> -->
+    <div class="offer__banner__container">
+        <img alt="banner" src="{{ asset('img/banner.png') }}" />
+        <div class="banner__text">
+                <ul class="custom__breadcumb">
+                    <li>
+                        <a href="/oferta">Oferta</a>
+                    </li>
+                    <li>
+                        Instalacje elektryczne
+                    </li>
+                </ul>
+            <h1>Instalacje elektryczne</h1>
+        </div>
+    </div>
+    
     <section class="single__offer__section container">
     <div class="service__overview">
         <h4>Opis usługi</h4>

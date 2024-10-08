@@ -21,8 +21,6 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|pl|cz|de']], f
     });
 });
 
-
-
 Route::get('/oferta/{id}', function () {
     return view('offer.show');
 });
