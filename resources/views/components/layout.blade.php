@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   @vite(['public/sass/app.scss', 'resources/js/app.js', 'public/js/app.js'])
   <link rel="shortcut icon" href="https://eldob.pl/src_eldob/img/eldob/ikona.ico">
 </head>
@@ -30,19 +30,19 @@
                 <span>&#9662;</span> <!-- Down arrow -->
             </div>
             <div class="dropdown-list">
-                <a href="{{ route('lang.switch', 'pl') }}" class="dropdown-item"></a>
+                <a href="{{ route('lang.switch', 'pl') }}" class="dropdown-item" data-value="pl">
                     <img src="{{ asset('icons/poland_icon.png') }}" alt="pl">
                     <span></span>
                 </a>
-                <a href="{{ route('lang.switch', 'en') }}" class="dropdown-item">
+                <a href="{{ route('lang.switch', 'en') }}" class="dropdown-item" data-value="en">
                     <img src="{{ asset('icons/uk_icon.png') }}" alt="en">
                     <span></span>
                 </a>
-                <a href="{{ route('lang.switch', 'de') }}" class="dropdown-item">
+                <a href="{{ route('lang.switch', 'de') }}" class="dropdown-item" data-value="de">
                     <img src="{{ asset('icons/german_icon.png') }}" alt="de">
                     <span></span>
                 </a>
-                <a href="{{ route('lang.switch', 'cz') }}" class="dropdown-item">
+                <a href="{{ route('lang.switch', 'cz') }}" class="dropdown-item" data-value="cz">
                     <img src="{{ asset('icons/czech_icon.png') }}" alt="cz">
                     <span></span>
                 </a>

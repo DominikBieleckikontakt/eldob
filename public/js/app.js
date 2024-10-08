@@ -1,77 +1,35 @@
-    var swiper = new Swiper(".mySwiper", {
-        spaceBetween: 30,
-        autoplay: {
-            delay: 5000,
-        },
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-    });
+var swiper = new Swiper(".mySwiper", {
+    spaceBetween: 30,
+    autoplay: {
+        delay: 5000,
+    },
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+});
 
-    var swiper2 = new Swiper(".mySwiper2", {
-        slidesPerView: 1,
-        spaceBetween: 10,
-        autoplay: {
-            delay: 3000
+var swiper2 = new Swiper(".mySwiper2", {
+    slidesPerView: 1,
+    spaceBetween: 10,
+    autoplay: {
+        delay: 3000
+    },
+    pagination: {
+        el: ".swiper-pagination2",
+        clickable: true,
+    },
+    breakpoints: {
+        768: {
+            slidesPerView: 2,
+            spaceBetween: 20,
         },
-        pagination: {
-          el: ".swiper-pagination2",
-          clickable: true,
-        },
-        breakpoints: {
-            768: {
-                slidesPerView: 2,
-                spaceBetween: 20,
-            },
-            1024: {
-                slidesPerView: 3,
-                spaceBetween: 30,
-            }
+        1024: {
+            slidesPerView: 3,
+            spaceBetween: 30,
         }
-      });
-    
-    const customSelect = document.querySelector('.custom-select');
-    const selectedItem = customSelect.querySelector('.selected-item');
-    const selectedImage = document.getElementById('selectedImage');
-    const selectedText = document.getElementById('selectedText');
-    const dropdownList = customSelect.querySelector('.dropdown-list');
-    const selectElement = document.getElementById('customSelect');
-
-    // Set default value (e.g., first option)
-    const defaultOption = customSelect.querySelector('.dropdown-item[data-value="1"]');
-    const defaultImageSrc = defaultOption.querySelector('img').src;
-    const defaultText = defaultOption.querySelector('span').textContent;
-    selectedImage.src = defaultImageSrc;
-    selectedText.textContent = defaultText;
-    selectElement.value = defaultOption.getAttribute('data-value'); // Set hidden select default value
-
-    // Toggle dropdown
-    selectedItem.addEventListener('click', () => {
-        customSelect.classList.toggle('active');
-    });
-
-    // Handle dropdown item click
-    dropdownList.addEventListener('click', (e) => {
-        if (e.target.closest('.dropdown-item')) {
-            const item = e.target.closest('.dropdown-item');
-            const value = item.getAttribute('data-value');
-            const imgSrc = item.querySelector('img').src;
-            const text = item.querySelector('span').textContent;
-
-            selectedImage.src = imgSrc; // Update selected image
-            selectedText.textContent = text; // Update selected text
-            selectElement.value = value; // Update hidden select value
-            customSelect.classList.remove('active'); // Close dropdown
-        }
-    });
-
-    // Close dropdown when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!customSelect.contains(e.target)) {
-            customSelect.classList.remove('active');
-        }
-    });
+    }
+});
 
 
 const elements = document.querySelectorAll(".offer__card");
@@ -104,20 +62,55 @@ contactElements.forEach((element) => {
     observer.observe(element);
 });
 
-$(document).ready(function() {
-    function formatOption(option) {
-        if (!option.id) return option.text; // No need to show the image if no ID
-        
-        var img = $(option.element).data('image');
-        var optionText = '<img src="' + img + '" style="width: 20px; height: 20px; margin-right: 10px;" />' + option.text;
-        return $(optionText);
-    }
+document.addEventListener("DOMContentLoaded", function () {
+    const customSelect = document.querySelector('.custom-select');
+    const selectedItem = customSelect.querySelector('.selected-item');
+    const selectedImage = document.getElementById('selectedImage');
+    const selectedText = document.getElementById('selectedText');
+    const dropdownList = customSelect.querySelector('.dropdown-list');
+    // const selectElement = document.getElementById('customSelect');
+    
+    // Set default value (e.g., first option)
+    const defaultOption = customSelect.querySelector('.dropdown-item[data-value="pl"]');
+    selectedImage.src = defaultOption.querySelector('img').src; 
+    selectedText.textContent = defaultOption.querySelector('span').textContent;
 
-    $('#imageSelect').select2({
-        templateResult: formatOption,
-        templateSelection: formatOption
+    // Toggle dropdown
+    selectedItem.addEventListener('click', () => {
+        customSelect.classList.toggle('active');
+    });
+
+    // Handle dropdown item click
+    dropdownList.addEventListener('click', (e) => {
+        const item = e.target.closest('.dropdown-item');
+        if (item) {
+            // const value = item.getAttribute('data-value');
+            const imgSrc = item.querySelector('img').src;
+            const text = item.querySelector('span').textContent;
+
+            selectedImage.src = imgSrc; // Update selected image
+            selectedText.textContent = text; // Update selected text
+            //selectElement.value = value; // Update hidden select value
+            customSelect.classList.remove('active'); // Close dropdown
+            // window.location.href = item.getAttribute('href');
+        }
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!customSelect.contains(e.target)) {
+            customSelect.classList.remove('active');
+        }
     });
 });
+
+
+// const defaultImageSrc = defaultOption.querySelector('img').src;
+// const defaultText = defaultOption.querySelector('span').textContent;
+// selectedImage.src = defaultImageSrc;
+// selectedText.textContent = defaultText;
+// selectElement.value = defaultOption.getAttribute('data-value'); 
+
 
 // Pobierz wszystkie obrazki z galerii i overlay
 const galleryItems = document.querySelectorAll(".gallery-item img");

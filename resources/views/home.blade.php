@@ -35,7 +35,7 @@
         <div class="swiper mySwiper2">
             <div class="swiper-wrapper">
                 @foreach($services as $service)
-                <a href="#" class="offer__card slideIn swiper-slide">
+                <a href="#" class="offer__card swiper-slide slideIn">
                     <img src="{{ asset('img/offer_image.png') }}" alt="offer">
                     <h3>{{ $service->getTranslatedAttribute('name', app()->getLocale(), 'pl'); }}</h3>
                     <p>{{ $service->getTranslatedAttribute('excerpt', app()->getLocale(), 'pl'); }}</p>
