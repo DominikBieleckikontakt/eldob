@@ -34,36 +34,14 @@
         </x-heading>
         <div class="swiper mySwiper2">
             <div class="swiper-wrapper">
-                <a href="/oferta/1" class="offer__card slideIn swiper-slide">
+                @foreach($services as $service)
+                <a href="#" class="offer__card slideIn swiper-slide">
                     <img src="{{ asset('img/offer_image.png') }}" alt="offer">
-                    <h3>Instalacje Teletechniczne</h3>
-                    <p>(instalacje niskoprądowe) w odróżnieniu od instalacji tzw. elektrycznych, działają na niskich napięciach prądu (np. 12V lub 24V).</p>
-                    <button>Sprawdź</button>
+                    <h3>{{ $service->getTranslatedAttribute('name', app()->getLocale(), 'pl'); }}</h3>
+                    <p>{{ $service->getTranslatedAttribute('excerpt', app()->getLocale(), 'pl'); }}</p>
+                    <button>{{ __('Sprawdź') }}</button>
                 </a>
-                <a href="/oferta/1" class="offer__card slideIn swiper-slide">
-                    <img src="{{ asset('img/offer_image.png') }}" alt="offer">
-                    <h3>Instalacje Teletechniczne</h3>
-                    <p>(instalacje niskoprądowe) w odróżnieniu od instalacji tzw. elektrycznych, działają na niskich napięciach prądu (np. 12V lub 24V).</p>
-                    <button>Sprawdź</button>
-                </a>
-                <a href="/oferta/1" class="offer__card slideIn swiper-slide">
-                    <img src="{{ asset('img/offer_image.png') }}" alt="offer">
-                    <h3>Instalacje Teletechniczne</h3>
-                    <p>(instalacje niskoprądowe) w odróżnieniu od instalacji tzw. elektrycznych, działają na niskich napięciach prądu (np. 12V lub 24V).</p>
-                    <button>Sprawdź</button>
-                </a>
-                <a href="/oferta/1" class="offer__card slideIn swiper-slide">
-                    <img src="{{ asset('img/offer_image.png') }}" alt="offer">
-                    <h3>Instalacje Teletechniczne</h3>
-                    <p>(instalacje niskoprądowe) w odróżnieniu od instalacji tzw. elektrycznych, działają na niskich napięciach prądu (np. 12V lub 24V).</p>
-                    <button>Sprawdź</button>
-                </a>
-                <a href="/oferta/1" class="offer__card slideIn swiper-slide">
-                    <img src="{{ asset('img/offer_image.png') }}" alt="offer">
-                    <h3>Instalacje Teletechniczne</h3>
-                    <p>(instalacje niskoprądowe) w odróżnieniu od instalacji tzw. elektrycznych, działają na niskich napięciach prądu (np. 12V lub 24V).</p>
-                    <button>Sprawdź</button>
-                </a>
+                @endforeach
             </div>
         </div>
         <div class="btn__container">

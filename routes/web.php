@@ -1,16 +1,28 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\PagesController;
 
-Route::get('/', function () {
-    return view('home');
+
+Route::get('lang/{locale}', function($locale) {
+    if (in_array($locale, ['pl', 'en', 'de', 'cz'])) {
+        session(['locale' => $locale]);
+    }
+    return redirect()->back();
+})->name('lang.switch');
+
+// Dodaj grupę z prefiksem {locale} oraz domyślną stroną
+Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|pl|cz|de']], function () {
+    Route::controller(PagesController::class)->group(function() {
+        Route::get('/', 'home')->name('home');
+        Route::get('/oferta', 'offers')->name('offers');
+    });
 });
 
-Route::get('/oferta', function () {
-    return view('offer.index');
-});
+
+
 Route::get('/oferta/{id}', function () {
     return view('offer.show');
 });
@@ -54,17 +66,6 @@ Route::get('/kalkulator-wykonania-instalacji-elektrycznej', function () {
     return view('calculator');
 });
 
-
-// Route::get('lang/{locale}', function ($locale) {
-//     if (!in_array($locale, ['en', 'pl', 'cz', 'de'])) {
-//         abort(400);
-//     }
-
-//     Session::put('locale', $locale);
-//     App::setLocale($locale);
-
-//     return redirect()->back();
-// });
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

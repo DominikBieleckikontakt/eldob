@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="{{ app()->getLocale() }}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,25 +30,23 @@
                 <span>&#9662;</span> <!-- Down arrow -->
             </div>
             <div class="dropdown-list">
-                <div class="dropdown-item" data-value="1">
-                    <img src="{{ asset('icons/uk_icon.png') }}" alt="en">
-                    <span></span>
-                </div>
-                <div class="dropdown-item" data-value="2">
+                <a href="{{ route('lang.switch', 'pl') }}" class="dropdown-item"></a>
                     <img src="{{ asset('icons/poland_icon.png') }}" alt="pl">
                     <span></span>
-                </div>
-                <div class="dropdown-item" data-value="3">
+                </a>
+                <a href="{{ route('lang.switch', 'en') }}" class="dropdown-item">
+                    <img src="{{ asset('icons/uk_icon.png') }}" alt="en">
+                    <span></span>
+                </a>
+                <a href="{{ route('lang.switch', 'de') }}" class="dropdown-item">
                     <img src="{{ asset('icons/german_icon.png') }}" alt="de">
                     <span></span>
-                </div>
+                </a>
+                <a href="{{ route('lang.switch', 'cz') }}" class="dropdown-item">
+                    <img src="{{ asset('icons/czech_icon.png') }}" alt="cz">
+                    <span></span>
+                </a>
             </div>
-            <!-- Hidden select for form submission -->
-            <select name="options" id="customSelect">
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
-            </select>
         </div>
       </div>
       </div>
