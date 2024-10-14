@@ -1,47 +1,19 @@
 <x-layout>
-  <x-slot:title>Oferta</x-slot:title>
+  <x-slot:title>{{ __('messages.our_offer') }}</x-slot:title>
   <section class="offer__section container">
     <x-heading>
-        <x-slot:subtitle>Co potrafimy zrobić?</x-slot>
-        Nasza Oferta<span class="dot">.</span>
+        <x-slot:subtitle>{{ __('messages.what_we_can_do') }}</x-slot>
+        {{ __('messages.our_offer') }}<span class="dot">.</span>
     </x-heading>
     <div class="offer__grid">
-      <a href="/oferta/1" class="offer__card slideIn">
-          <img src="{{ asset('img/offer_image.png') }}" alt="Obrazek 1">
-          <h3>Instalacje Teletechniczne</h3>
-          <p>(instalacje niskoprądowe) w odróżnieniu od instalacji tzw. elektrycznych, działają na niskich napięciach prądu (np. 12V lub 24V).</p>
-          <button>Sprawdź</button>
+      @foreach($services as $service)
+      <a href="{{ route('offer', ['slug' => $service->slug, 'lang' => app()->getLocale()]) }}" class="offer__card slideIn">
+          <img src="{{ asset('storage/'.$service->image) }}" alt="{{ $service->getTranslatedAttribute('name', app()->getLocale(), 'pl') }}">
+          <h3>{{ $service->getTranslatedAttribute('name', app()->getLocale(), 'pl') }}</h3>
+          <p>{{ $service->getTranslatedAttribute('excerpt', app()->getLocale(), 'pl') }}</p>
+          <button>{{ __('messages.check_out') }}</button>
       </a>
-      <a href="/oferta/1" class="offer__card slideIn">
-        <img src="{{ asset('img/offer_image.png') }}" alt="Obrazek 1">
-        <h3>Instalacje Teletechniczne</h3>
-        <p>(instalacje niskoprądowe) w odróżnieniu od instalacji tzw. elektrycznych, działają na niskich napięciach prądu (np. 12V lub 24V).</p>
-        <button>Sprawdź</button>
-      </a>      
-      <a href="/oferta/1" class="offer__card slideIn">
-        <img src="{{ asset('img/offer_image.png') }}" alt="Obrazek 1">
-        <h3>Instalacje Teletechniczne</h3>
-        <p>(instalacje niskoprądowe) w odróżnieniu od instalacji tzw. elektrycznych, działają na niskich napięciach prądu (np. 12V lub 24V).</p>
-        <button>Sprawdź</button>
-      </a>
-      <a href="/oferta/1" class="offer__card slideIn">
-        <img src="{{ asset('img/offer_image.png') }}" alt="Obrazek 1">
-        <h3>Instalacje Teletechniczne</h3>
-        <p>(instalacje niskoprądowe) w odróżnieniu od instalacji tzw. elektrycznych, działają na niskich napięciach prądu (np. 12V lub 24V).</p>
-        <button>Sprawdź</button>
-      </a>
-      <a href="/oferta/1" class="offer__card slideIn">
-        <img src="{{ asset('img/offer_image.png') }}" alt="Obrazek 1">
-        <h3>Instalacje Teletechniczne</h3>
-        <p>(instalacje niskoprądowe) w odróżnieniu od instalacji tzw. elektrycznych, działają na niskich napięciach prądu (np. 12V lub 24V).</p>
-        <button>Sprawdź</button>
-      </a>
-      <a href="/oferta/1" class="offer__card slideIn">
-        <img src="{{ asset('img/offer_image.png') }}" alt="Obrazek 1">
-        <h3>Instalacje Teletechniczne</h3>
-        <p>(instalacje niskoprądowe) w odróżnieniu od instalacji tzw. elektrycznych, działają na niskich napięciach prądu (np. 12V lub 24V).</p>
-        <button>Sprawdź</button>
-      </a>
+      @endforeach
   </div>
   </section>
 </x-layout>

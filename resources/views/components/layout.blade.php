@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ $title }}</title>
+  <title>{{ $title }} - Eldob.pl</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
@@ -14,7 +14,7 @@
 <body>
   <nav class="navbar navbar-expand-xl fixed-top">
     <div class="nav__container">
-      <a href="/" class="logo__container navbar-brand">
+      <a href="{{ route('home', ['lang' => app()->getLocale()]) }}" class="logo__container navbar-brand">
         <img alt="Logo Eldob" src="{{ asset('img/logo.png') }}" class="logo">
       </a>
       <div class="btns__container">
@@ -24,25 +24,24 @@
         <div class="language-select-container bigger">
           <div class="custom-select m-auto">
             <div class="selected-item">
-                <!-- Default image and text will be set here by JavaScript -->
                 <img src="" alt="" id="selectedImage" style="max-width: 20px; margin-inline: auto;">
                 <span id="selectedText"></span>
-                <span>&#9662;</span> <!-- Down arrow -->
+                <span>&#9662;</span>
             </div>
             <div class="dropdown-list">
-                <a href="{{ route('lang.switch', 'pl') }}" class="dropdown-item" data-value="pl">
+                <a href="{{ route('home', ['lang' => 'pl']) }}" class="dropdown-item" data-value="pl">
                     <img src="{{ asset('icons/poland_icon.png') }}" alt="pl">
                     <span></span>
                 </a>
-                <a href="{{ route('lang.switch', 'en') }}" class="dropdown-item" data-value="en">
+                <a href="{{ route('home', ['lang' => 'en']) }}" class="dropdown-item" data-value="en">
                     <img src="{{ asset('icons/uk_icon.png') }}" alt="en">
                     <span></span>
                 </a>
-                <a href="{{ route('lang.switch', 'de') }}" class="dropdown-item" data-value="de">
+                <a href="{{ route('home', ['lang' => 'de']) }}" class="dropdown-item" data-value="de">
                     <img src="{{ asset('icons/german_icon.png') }}" alt="de">
                     <span></span>
                 </a>
-                <a href="{{ route('lang.switch', 'cz') }}" class="dropdown-item" data-value="cz">
+                <a href="{{ route('home', ['lang' => 'cz']) }}" class="dropdown-item" data-value="cz">
                     <img src="{{ asset('icons/czech_icon.png') }}" alt="cz">
                     <span></span>
                 </a>
@@ -52,13 +51,15 @@
       </div>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <x-nav-link href="/oferta" class="a__link {{ request()->is('oferta') ? 'active' : '' }}">Oferta</x-nav-link>
-          <x-nav-link href="/sprzedaz" class="a__link {{ request()->is('sprzedaz') ? 'active' : '' }}">Sprzedaż</x-nav-link>
-          <x-nav-link href="/realizacje" class="a__link {{ request()->is('realizacje') ? 'active' : '' }}">Realizacje</x-nav-link>
-          <x-nav-link href="/referencje" class="a__link {{ request()->is('referencje') ? 'active' : '' }}">Referencje</x-nav-link>
-          <x-nav-link href="/czym-sie-zajmujemy" class="a__link {{ request()->is('czym-sie-zajmujemy') ? 'active' : '' }}">Czym się zajmujemy</x-nav-link>
-          <x-nav-link href="/kontakt" class="a__link {{ request()->is('kontakt') ? 'active' : '' }}">Kontakt</x-nav-link>
-          <x-nav-link href="/kalkulator-wykonania-instalacji-elektrycznej" class="a__link a__btn {{ request()->is('kalkulator-wykonania-instalacji-elektrycznej') ? 'active' : '' }}">Wycena</x-nav-link>
+          @if(app()->getLocale() == 'pl')
+          {{ menu("menu_pl", "custom_menu") }}
+          @elseif(app()->getLocale() == 'en')
+          {{ menu("menu_en", "custom_menu") }}
+          @elseif(app()->getLocale() == 'de')
+          {{ menu("menu_de", "custom_menu") }}
+          @elseif(app()->getLocale() == 'cz')
+          {{ menu("menu_cz", "custom_menu") }}
+          @endif
         </ul>
       </div>
     </nav>
@@ -70,49 +71,66 @@
       <div class="footer">
         <div>
           <div class="footer__logo-container">
-            <a href="/">
+            <a href="{{ route('home', ['lang' => app()->getLocale()]) }}">
               <img src="{{ asset('img/logo.png') }}" alt="Eldob Logo">
             </a>
             <div>
-              <p class="description">Firma elektryczna ELDOB świadczy kompleksowe usługi, w dziedzinie szeroko pojętej energetykiej, dla klientów indywidualnych i biznesowych, na terenie całego kraju.</p>
+              <p class="description">{{ __('messages.description') }}</p>
             </div>
           </div>
           <div class="footer__nav-container">
-            <h4>Nawigacja</h4>
+            <h4>{{ __('messages.quick_access') }}</h4>
             <ul>
               <li>
-                <a href="/oferta">Oferta</a>
+                <a href="{{ route('offers', ['lang' => app()->getLocale()]) }}">{{ __('messages.offer') }}</a>
               </li>
               <li>
-                <a href="/sprzedaz">Sprzedaż</a>
+                <a href="{{ route('realizations', ['lang' => app()->getLocale()]) }}">{{ __('messages.realizations') }}</a>
               </li>
               <li>
-                <a href="/czym-sie-zajmujemy">Czym się zajmujemy</a>
+                <a href="{{ route('references', ['lang' => app()->getLocale()]) }}">{{ __('messages.references') }}</a>
               </li>
               <li>
-                <a href="/realizacje">Realizacje</a>
-              </li>
-              <li>
-                <a href="/referencje">Referencje</a>
-              </li>
-              <li>
-                <a href="/kontakt">Kontakt</a>
+                <a href="{{ route('contact', ['lang' => app()->getLocale()]) }}">{{ __('messages.contact') }}</a>
               </li>
             </ul>
           </div>
           <div class="footer__services-container">
-            <h4>Linki</h4>
+            <h4>{{ __('messages.links') }}</h4>
             <ul>
+              @if(app()->getLocale() == 'pl')
               <li>
-                <a href="/polityka-prywatnosci">Polityka Prywatności</a>
+                <a href="/pl/polityka-prywatnosci">{{ __('messages.privacy_policy') }}</a>
               </li>
               <li>
-                <a href="/polityka-cookies">Polityka Cookies</a>
+                <a href="/pl/polityka-cookies">{{ __('messages.cookies_policy') }}</a>
               </li>
+              @elseif(app()->getLocale() == 'en')
+              <li>
+                <a href="/en/privacy-policy">{{ __('messages.privacy_policy') }}</a>
+              </li>
+              <li>
+                <a href="/en/cookies-policy">{{ __('messages.cookies_policy') }}</a>
+              </li>
+              @elseif(app()->getLocale() == 'de')
+              <li>
+                <a href="/de/datenschutzbestimmungen">{{ __('messages.privacy_policy') }}</a>
+              </li>
+              <li>
+                <a href="/de/cookies-politik">{{ __('messages.cookies_policy') }}</a>
+              </li>
+              @elseif(app()->getLocale() == 'cz')
+               <li>
+                <a href="/cz/zasady-ochrany-osobnich-udaju">{{ __('messages.privacy_policy') }}</a>
+              </li>
+              <li>
+                <a href="/cz/zasady-pouzivani-souboru-cookie">{{ __('messages.cookies_policy') }}</a>
+              </li>
+              @endif
             </ul>
           </div>
           <div class="footer__contact-container">
-            <h4>Kontakt</h4>
+            <h4>{{ __('messages.contact') }}</h4>
             <ul>
               <li>
                 <a href="tel:+48511844001">+48 511 844 001</a>
@@ -140,14 +158,14 @@
         </div>
       <div class="made__by text-black">
         <div>
-          Strona zaprojektowana przez:
+          {{ __('messages.footer_author') }}
           <a href="https://www.stronydlafirm.eu/">
               <img src="https://eldob.pl/src_eldob/img/eldob/sdf-logo.png" /> StronyDlaFirm.eu
           </a>
         </div>
       </div>
       <a href="tel:+48511844001" class="call__us-button">
-          <img src="/icons/full_phone_icon.png" alt="">                     
+          <img src="/icons/full_phone_icon.png">                     
       </a>
     </footer>
 </body>

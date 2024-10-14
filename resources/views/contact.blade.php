@@ -2,18 +2,18 @@
   <x-slot:title>Kontakt</x-slot:title>
   <section class="container contact">
     <x-heading>
-        <x-slot:subtitle>Jak się z nami skontaktować?</x-slot>
-        Kontakt<span class="dot">.</span>
+        <x-slot:subtitle>{{ __('messages.how_to_contact') }}</x-slot>
+        {{ __('messages.contact') }}<span class="dot">.</span>
     </x-heading>
     <div class="contact__container">
       <div class="contact-item slideIn">
           <img src="{{ asset('icons/map_icon.png') }}" alt="mapa">
-          <p class="small-text">Odwiedź nas</p>
+          <p class="small-text">{{ __('messages.visit_us') }}</p>
           <p class="large-text">Ul. Mała 3, 43-400 Cieszyn</p>
       </div>
       <div class="contact-item slideIn">
           <img src="{{ asset('icons/mail_icon.png') }}" alt="Icon 2">
-          <p class="small-text">Napisz do nas</p>
+          <p class="small-text">{{ __('messages.write_to_us') }}</p>
           <p class="large-text">
             <a href="mailto:kontakt@eldob.pl">kontakt@eldob.pl</a>
             <a href="mailto:sprzedaz@eldob.pl">sprzedaz@eldob.pl</a>
@@ -21,7 +21,7 @@
       </div>
       <div class="contact-item phone slideIn">
           <img src="{{ asset('icons/phone_icon.png') }}" alt="Icon 3">
-          <p class="small-text">Zadzwoń do nas</p>
+          <p class="small-text">{{ __('messages.call_us') }}</p>
           <p class="large-text">            
             <a href="tel:+48511844001">
               +48 511-844-001
@@ -30,45 +30,58 @@
       </div>
     </div>
   </section>
-  <section class="contact__form__section home">
+  <section id="contact" class="contact__form__section home">
     <div>
       <x-heading>
-          <x-slot:subtitle>Wypełnij formularz</x-slot>
-          Skontaktuj się z nami<span class="dot">.</span>
+          <x-slot:subtitle>{{ __('messages.fill_form') }}</x-slot>
+          {{ __('messages.contact_us') }}<span class="dot">.</span>
       </x-heading>
     </div>
-    <form>
+    
+    <form action="{{ route('sendContact', ['lang' => app()->getLocale()]) }}#contact" method="post">
+      @csrf
+      
         <div class="form__container">
+          @if(session('success'))
+          <!-- Ostylowac komunikaty -->
+            <p>
+                {{ __("messages.message_sent_success") }}
+            </p>
+            @elseif(session('error'))
+            <p>
+                {{ __("messages.message_sent_error") }}
+            </p>
+            @endif
             <div>
-                <label for="name">Imię</label>
-                <input type="text" id="name" placeholder="Wpisz imię" required>
+                <label for="first_name">{{ __('messages.first_name') }}</label>
+                <input type="text" id="first_name" name="first_name" placeholder="{{ __('messages.provide_first_name') }}" required>
             </div>
             <div>
-                <label for="surname">Nazwisko</label>
-                <input type="text" id="surname" placeholder="Wpisz nazwisko" required>
+                <label for="last_name">{{ __('messages.last_name') }}</label>
+                <input type="text" id="last_name" name="last_name" placeholder="{{ __('messages.provide_last_name') }}" required>
             </div>
             <div>
-                <label for="email">E-mail</label>
-                <input type="email" id="email" placeholder="Wpisz email" required>
+                <label for="email">{{ __('messages.email') }}</label>
+                <input type="email" id="email" name="email" placeholder="{{ __('messages.provide_email') }}" required>
             </div>
             <div>
-                <label for="phone">Numer telefonu</label>
-                <input type="tel" id="number" placeholder="Wpisz numer telefonu" required>
+                <label for="phone">{{ __('messages.phone') }}</label>
+                <input type="tel" id="phone" name="phone" placeholder="{{ __('messages.provide_phone') }}" required>
             </div>
             <div class="textarea__container">
-                <label for="content">Twoja wiadomość</label>
-                <textarea name="content" id="content" required placeholder="Wpisz treść wiadomości"></textarea>
+                <label for="message">{{ __('messages.message') }}</label>
+                <textarea name="message" id="message" required placeholder="{{ __('messages.provide_message') }}"></textarea>
             </div>
         </div>
         <div class="btn__container">
-            <button type="submit">Wyślij</button>
+            <button type="submit">{{ __('messages.send') }}</button>
         </div>
     </form>
   </section>
   <section class="map__section home">
     <x-heading>
-      <x-slot:subtitle>Gdzie jesteśmy?</x-slot>
-      Znajdź nas<span class="dot">.</span>
+      <x-slot:subtitle>{{ __('messages.where_we_are') }}</x-slot>
+      {{ __('messages.find_us') }}<span class="dot">.</span>
     </x-heading>
    <div class="map">
      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2577.480114655723!2d18.640392111976272!3d49.7582251368446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471402648137d6dd%3A0xf7a9a3b8f11c786a!2sELDOB%20Sp.%20z%20o.o.!5e0!3m2!1spl!2spl!4v1726555350119!5m2!1spl!2spl" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
