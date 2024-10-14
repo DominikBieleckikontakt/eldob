@@ -4,11 +4,14 @@
         <div class="swiper-wrapper">
             @foreach($slides as $slide)
                 <div class="swiper-slide">
-                    <x-banner src="{{ asset('img/banner.png') }}">
-                        <x-slot:title>{{ $slide->getTranslatedAttribute('title', app()->getLocale()) }}</x-slot:title>
-                        {{ $slide->getTranslatedAttribute('text', app()->getLocale()) }}
-                        <a href="{{ $slide->getTranslatedAttribute('button_link', app()->getLocale()) }}">{{ $slide->getTranslatedAttribute('button_text', app()->getLocale()) }}</a>
-                    </x-banner>
+                    <div class="banner__container">
+                        <img src="{{ asset('img/banner.png') }}" alt="banner">
+                        <div class="banner__text">
+                            <h1>{{ $slide->getTranslatedAttribute('title', app()->getLocale()) }}</h1>
+                            <p>{{ $slide->getTranslatedAttribute('text', app()->getLocale()) }}</p>
+                            <a href="{{ $slide->getTranslatedAttribute('button_link', app()->getLocale()) }}">{{ $slide->getTranslatedAttribute('button_text', app()->getLocale()) }}</a>
+                        </div>
+                    </div>
                 </div>
             @endforeach
         </div>
@@ -24,10 +27,14 @@
             <div class="swiper-wrapper">
                 @foreach($services as $service)
                 <a href="{{ route('offer', ['slug' => $service->getTranslatedAttribute('slug', app()->getLocale()), 'lang' => app()->getLocale()]) }}" class="offer__card swiper-slide slideIn">
-                    <img src="{{ asset('img/offer_image.png') }}" alt="offer">
-                    <h3>{{ $service->getTranslatedAttribute('name', app()->getLocale(), 'pl') }}</h3>
-                    <p>{{ $service->getTranslatedAttribute('excerpt', app()->getLocale(), 'pl') }}</p>
-                    <button>{{ __('messages.check_out') }}</button>
+                    <img src="{{ asset('storage/'.$service->image) }}" alt="offer image" />
+                    <div class="offer__card__text">
+                        <div>
+                            <h3>{{ $service->getTranslatedAttribute('name', app()->getLocale(), 'pl') }}</h3>
+                            <p>{{ $service->getTranslatedAttribute('excerpt', app()->getLocale(), 'pl') }}</p>
+                        </div>
+                        <button>{{ __('messages.check_out') }}</button>
+                    </div>
                 </a>
                 @endforeach
             </div>
@@ -47,7 +54,7 @@
         <div class="realizations__gallery__home">
             @foreach($realizations as $realization)
             <a href="{{ route('realization', ['slug' => $realization->getTranslatedAttribute('slug', app()->getLocale()), 'lang' => app()->getLocale()]) }}" class="realizations__item slideIn">
-                <img src="{{ asset('img/realization_example.jpg') }}" alt="{{ $realization->getTranslatedAttribute('title', app()->getLocale(), 'pl') }}">
+                <img src="{{ asset('storage/'.$realization->image) }}" alt="{{ $realization->getTranslatedAttribute('title', app()->getLocale(), 'pl') }}">
                 <div class="overlay">{{ $realization->getTranslatedAttribute('title', app()->getLocale(), 'pl') }}</div>
             </a>
             @endforeach
@@ -72,16 +79,6 @@
         <form action="{{ route('sendContact', ['lang' => app()->getLocale()]) }}#contact" method="post">
             @csrf
             <div class="form__container">
-                 @if(session('success'))
-          <!-- Ostylowac komunikaty -->
-            <p>
-                {{ __("messages.message_sent_success") }}
-            </p>
-            @elseif(session('error'))
-            <p>
-                {{ __("messages.message_sent_error") }}
-            </p>
-            @endif
                 <div>
                     <label for="first_name">{{ __('messages.first_name') }}</label>
                     <input type="text" id="first_name" name="first_name" placeholder="{{ __('messages.provide_first_name') }}" required>
@@ -103,6 +100,15 @@
                     <textarea id="message" name="message" required placeholder="{{ __('messages.provide_message') }}"></textarea>
                 </div>
             </div>
+            @if(session('success'))
+                <p class="form__message success">
+                    {{ __("messages.message_sent_success") }}
+                </p>
+                @elseif(session('error'))
+                <p class="form__message error">
+                    {{ __("messages.message_sent_error") }}
+                </p>
+            @endif
             <div class="btn__container">
                 <button type="submit">{{ __('messages.send') }}</button>
             </div>

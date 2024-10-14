@@ -25,32 +25,32 @@
           <div class="custom-select m-auto">
             <div class="selected-item">
                 <img src="" alt="" id="selectedImage" style="max-width: 20px; margin-inline: auto;">
-                <span id="selectedText"></span>
+                <!-- <span id="selectedText"></span> -->
                 <span>&#9662;</span>
             </div>
             <div class="dropdown-list">
                 <a href="{{ route('home', ['lang' => 'pl']) }}" class="dropdown-item" data-value="pl">
                     <img src="{{ asset('icons/poland_icon.png') }}" alt="pl">
-                    <span></span>
+                    <!-- <span></span> -->
                 </a>
                 <a href="{{ route('home', ['lang' => 'en']) }}" class="dropdown-item" data-value="en">
                     <img src="{{ asset('icons/uk_icon.png') }}" alt="en">
-                    <span></span>
+                    <!-- <span></span> -->
                 </a>
                 <a href="{{ route('home', ['lang' => 'de']) }}" class="dropdown-item" data-value="de">
                     <img src="{{ asset('icons/german_icon.png') }}" alt="de">
-                    <span></span>
+                    <!-- <span></span> -->
                 </a>
                 <a href="{{ route('home', ['lang' => 'cz']) }}" class="dropdown-item" data-value="cz">
                     <img src="{{ asset('icons/czech_icon.png') }}" alt="cz">
-                    <span></span>
+                    <!-- <span></span> -->
                 </a>
             </div>
         </div>
       </div>
       </div>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <!-- <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0"> -->
           @if(app()->getLocale() == 'pl')
           {{ menu("menu_pl", "custom_menu") }}
           @elseif(app()->getLocale() == 'en')
@@ -60,8 +60,8 @@
           @elseif(app()->getLocale() == 'cz')
           {{ menu("menu_cz", "custom_menu") }}
           @endif
-        </ul>
-      </div>
+        <!-- </ul>
+      </div> -->
     </nav>
     </div>
     <main>
@@ -159,8 +159,8 @@
       <div class="made__by text-black">
         <div>
           {{ __('messages.footer_author') }}
-          <a href="https://www.stronydlafirm.eu/">
-              <img src="https://eldob.pl/src_eldob/img/eldob/sdf-logo.png" /> StronyDlaFirm.eu
+          <a href="https://digitalowa.pl/pl/">
+              <img src="https://eldob.pl/src_eldob/img/eldob/sdf-logo.png" /> Agencja Digitalowa.pl
           </a>
         </div>
       </div>

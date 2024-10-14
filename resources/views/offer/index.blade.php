@@ -9,9 +9,13 @@
       @foreach($services as $service)
       <a href="{{ route('offer', ['slug' => $service->slug, 'lang' => app()->getLocale()]) }}" class="offer__card slideIn">
           <img src="{{ asset('storage/'.$service->image) }}" alt="{{ $service->getTranslatedAttribute('name', app()->getLocale(), 'pl') }}">
-          <h3>{{ $service->getTranslatedAttribute('name', app()->getLocale(), 'pl') }}</h3>
-          <p>{{ $service->getTranslatedAttribute('excerpt', app()->getLocale(), 'pl') }}</p>
-          <button>{{ __('messages.check_out') }}</button>
+          <div class="offer__card__text">
+            <div>
+              <h3>{{ $service->getTranslatedAttribute('name', app()->getLocale(), 'pl') }}</h3>
+              <p>{{ $service->getTranslatedAttribute('excerpt', app()->getLocale(), 'pl') }}</p>
+            </div>
+            <button>{{ __('messages.check_out') }}</button>
+          </div>
       </a>
       @endforeach
   </div>

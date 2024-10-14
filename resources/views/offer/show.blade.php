@@ -2,6 +2,7 @@
     <x-slot:title
         >{{ $service->getTranslatedAttribute('name', app()->getLocale(), 'pl') }}</x-slot:title
     >
+
     <div class="offer__banner__container">
         <img alt="banner" src="{{ asset('img/banner.png') }}" />
         <div class="banner__text">
@@ -21,7 +22,6 @@
             </h1>
         </div>
     </div>
-
     <section class="single__offer__section container">
         <div class="service__overview">
             <h4>{{ __("messages.offer_overview") }}</h4>
@@ -30,6 +30,9 @@
                 {!! $service->getTranslatedAttribute('description',
                 app()->getLocale(), 'pl') !!}
             </p>
+        </div>
+        <div class="image__container">
+            <img src="{{ asset('storage/'.$service->image) }}" alt="service image"/>
         </div>
     </section>
 </x-layout>

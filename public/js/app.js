@@ -66,14 +66,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const customSelect = document.querySelector('.custom-select');
     const selectedItem = customSelect.querySelector('.selected-item');
     const selectedImage = document.getElementById('selectedImage');
-    const selectedText = document.getElementById('selectedText');
     const dropdownList = customSelect.querySelector('.dropdown-list');
-    // const selectElement = document.getElementById('customSelect');
+
+    // Extract the current language from the URL path
+    const pathParts = window.location.pathname.split('/');
+    const currentLang = pathParts[1] || 'pl'; // Default to 'pl' if no language code is found
+
+    // Set the selected image based on the current language
+    const defaultOption = customSelect.querySelector(`.dropdown-item[data-value="${currentLang}"]`);
     
-    // Set default value (e.g., first option)
-    const defaultOption = customSelect.querySelector('.dropdown-item[data-value="pl"]');
-    selectedImage.src = defaultOption.querySelector('img').src; 
-    selectedText.textContent = defaultOption.querySelector('span').textContent;
+    if (defaultOption) {
+        selectedImage.src = defaultOption.querySelector('img').src; // Set the selected flag image
+    }
 
     // Toggle dropdown
     selectedItem.addEventListener('click', () => {
@@ -84,15 +88,11 @@ document.addEventListener("DOMContentLoaded", function () {
     dropdownList.addEventListener('click', (e) => {
         const item = e.target.closest('.dropdown-item');
         if (item) {
-            // const value = item.getAttribute('data-value');
             const imgSrc = item.querySelector('img').src;
-            const text = item.querySelector('span').textContent;
-
             selectedImage.src = imgSrc; // Update selected image
-            selectedText.textContent = text; // Update selected text
-            //selectElement.value = value; // Update hidden select value
-            customSelect.classList.remove('active'); // Close dropdown
-            // window.location.href = item.getAttribute('href');
+
+            // Redirect to the selected language route
+            window.location.href = item.getAttribute('href');
         }
     });
 
@@ -104,25 +104,22 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-
-// const defaultImageSrc = defaultOption.querySelector('img').src;
-// const defaultText = defaultOption.querySelector('span').textContent;
-// selectedImage.src = defaultImageSrc;
-// selectedText.textContent = defaultText;
-// selectElement.value = defaultOption.getAttribute('data-value'); 
-
-
 // Pobierz wszystkie obrazki z galerii i overlay
 const galleryItems = document.querySelectorAll(".gallery-item img");
 const overlay = document.getElementById("gallery-overlay");
 const overlayImg = document.getElementById("overlay-img");
 const closeBtn = document.querySelector(".close");
+const prevArrow = document.querySelector(".prev-arrow");
+const nextArrow = document.querySelector(".next-arrow");
+
+let currentIndex = 0;
 
 // Funkcja otwierająca overlay z wybranym obrazkiem
-galleryItems.forEach((img) => {
+galleryItems.forEach((img, index) => {
     img.addEventListener("click", () => {
         overlay.style.display = "flex"; // Wyświetl overlay
         overlayImg.src = img.src; // Ustaw źródło klikniętego obrazka
+        currentIndex = index; // Zapisz indeks klikniętego obrazka
     });
 });
 
@@ -137,6 +134,29 @@ overlay.addEventListener("click", (e) => {
         overlay.style.display = "none"; // Ukryj overlay
     }
 });
+
+// Funkcje nawigacji (poprzedni/następny)
+const showImage = (index) => {
+    if (index >= 0 && index < galleryItems.length) {
+        overlayImg.src = galleryItems[index].src; // Zmień obrazek w overlay
+        currentIndex = index; // Zaktualizuj bieżący indeks
+    }
+};
+
+// Obsługa kliknięcia w strzałkę "poprzedni"
+prevArrow.addEventListener("click", (e) => {
+    e.stopPropagation(); // Zatrzymaj zdarzenie kliknięcia, aby nie zamykało overlay
+    const newIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length; // Przejdź do poprzedniego obrazka
+    showImage(newIndex);
+});
+
+// Obsługa kliknięcia w strzałkę "następny"
+nextArrow.addEventListener("click", (e) => {
+    e.stopPropagation(); // Zatrzymaj zdarzenie kliknięcia, aby nie zamykało overlay
+    const newIndex = (currentIndex + 1) % galleryItems.length; // Przejdź do następnego obrazka
+    showImage(newIndex);
+});
+
 
 document.addEventListener("DOMContentLoaded", () => {
     const galleryItems = document.querySelectorAll(

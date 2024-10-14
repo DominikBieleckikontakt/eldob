@@ -16,7 +16,6 @@
           <p class="small-text">{{ __('messages.write_to_us') }}</p>
           <p class="large-text">
             <a href="mailto:kontakt@eldob.pl">kontakt@eldob.pl</a>
-            <a href="mailto:sprzedaz@eldob.pl">sprzedaz@eldob.pl</a>
           </p>
       </div>
       <div class="contact-item phone slideIn">
@@ -42,16 +41,6 @@
       @csrf
       
         <div class="form__container">
-          @if(session('success'))
-          <!-- Ostylowac komunikaty -->
-            <p>
-                {{ __("messages.message_sent_success") }}
-            </p>
-            @elseif(session('error'))
-            <p>
-                {{ __("messages.message_sent_error") }}
-            </p>
-            @endif
             <div>
                 <label for="first_name">{{ __('messages.first_name') }}</label>
                 <input type="text" id="first_name" name="first_name" placeholder="{{ __('messages.provide_first_name') }}" required>
@@ -73,6 +62,15 @@
                 <textarea name="message" id="message" required placeholder="{{ __('messages.provide_message') }}"></textarea>
             </div>
         </div>
+        @if(session('success'))
+          <p class="form__message success">
+              {{ __("messages.message_sent_success") }}
+          </p>
+        @elseif(session('error'))
+          <p class="form__message error">
+              {{ __("messages.message_sent_error") }}
+          </p>
+        @endif
         <div class="btn__container">
             <button type="submit">{{ __('messages.send') }}</button>
         </div>

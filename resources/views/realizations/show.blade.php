@@ -50,7 +50,9 @@
           <div id="gallery-overlay" class="gallery-overlay">
               <span class="close">&times;</span>
               <img class="overlay-img" id="overlay-img" src="{{ asset('img/realization_example.jpg') }}">
-          </div>
+              <span class="prev-arrow">&#10094;</span>
+              <span class="next-arrow">&#10095;</span>
+            </div>
       </div>
 
 

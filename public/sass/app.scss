@@ -70,10 +70,14 @@ nav {
             cursor: pointer;
             display: flex;
             align-items: center;
+
+            @media (max-width: 1000px) {
+                transform: translateX(-41%);
+            }
         }
 
         .dropdown-item:hover {
-            background-color: #f0f0f0;
+            background-color: #f0f0f0;  
         }
 
         .dropdown-item img {
@@ -84,23 +88,6 @@ nav {
         /* Show the dropdown when active */
         .custom-select.active .dropdown-list {
             display: block;
-        }
-
-        .language-switcher {
-            padding: 10px;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;            
-            background-size: 20px;
-
-            img {
-                width: 10px;
-                height: 10px;
-            }
-        }
-        
-        .language-switcher:hover {
-            border-color: #007bff;
         }
     }
 
@@ -122,14 +109,14 @@ nav {
 
     .a__btn {
         background-color: var(--primary-color);
-        color: white;
+        color: var(--text-black);
         border-radius: 12px;
         min-width: 100px;
         text-align: center;
         transition-duration: 300ms;
 
         &:hover {
-            color: white;
+            color: var(--text-black);
             background-color: var(--accent-color);
         }
     }
@@ -664,6 +651,30 @@ nav {
     .close:hover {
         color: #ccc;
     }
+
+    .prev-arrow, .next-arrow {
+        position: absolute;
+        top: 57.5%;
+        transform: translateY(-50%);
+        color: white;
+        font-size: 50px;
+        cursor: pointer;
+        padding: 20px;
+        user-select: none;
+        transition: 0.3s;
+    }
+    
+    .prev-arrow {
+        left: 10px;
+    }
+    
+    .next-arrow {
+        right: 10px;
+    }
+    
+    .prev-arrow:hover, .next-arrow:hover {
+        color: #ccc;
+    }
 }
 
 @media (min-width: 1024px) {
@@ -744,6 +755,20 @@ nav {
     margin-top: 3rem;
     margin-bottom: 5rem;
 
+    .form__message {
+        margin-top: 1rem;
+    }
+
+    .success {
+        color: rgb(0, 165, 0);
+        font-weight: bold;
+    }
+
+    .error {
+        color: rgb(255, 0, 0);
+        font-weight: bold;
+    }
+
     .heading {
         margin-bottom: 2.5rem;
     }
@@ -772,7 +797,7 @@ nav {
         background-color: var(--primary-color);
         width: 100%;
         justify-self: center;
-        margin-top: 3rem;
+        margin-top: 2rem;
         border-radius: 8px;
         font-weight: 600;
         transition-duration: 300ms;
@@ -785,8 +810,8 @@ nav {
     .form__container {
         max-width: 1100px;
         display: grid;
-        column-gap: 5rem;
-        row-gap: 1rem;
+        column-gap: 2rem;
+        row-gap: 2rem;
 
         label {
             font-size: 0.8rem;
@@ -1029,6 +1054,9 @@ footer {
 
 .offer__card {
     background-color: white;
+    display: grid;
+    grid-template-rows: .5fr 1fr;
+    row-gap: 0;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -1037,8 +1065,14 @@ footer {
     text-decoration: none;
     color: inherit;
 
+    .offer__card__text {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
     button {
-        margin: 20px;
+        margin: 15px;
     }
 
     a {
@@ -1055,7 +1089,7 @@ footer {
 
     h3 {
         font-size: 1.25rem;
-        margin-top: 2rem;
+        margin-top: 1rem;
         text-align: left;
         padding-inline: 15px;
     }
@@ -1095,6 +1129,15 @@ footer {
     display: grid;
     row-gap: 1rem;
 
+    .image__container {
+        padding: 1rem;
+
+        img {
+            max-width: 100%;
+            border-radius: 16px;
+        }
+    }
+
     p {
         color: #8b8b8b;
     }
@@ -1127,7 +1170,7 @@ footer {
     }
 
     @media (min-width: 1000px) {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 3rem;
 
         .service__why {
