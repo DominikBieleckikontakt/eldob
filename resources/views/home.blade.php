@@ -18,7 +18,7 @@
         <div class="swiper-pagination"></div>
     </div>
 
-    <section class="offer__section home">
+    <section class="offer__section home" id="offers">
         <x-heading>
             <x-slot:subtitle>{{ __('messages.what_we_can_do') }}</x-slot>
             {{ __('messages.our_offer') }}<span class="dot">.</span>
@@ -46,7 +46,7 @@
         </div>
     </section>
     
-    <section class="realization">
+    <section class="realization" id="realizations">
         <x-heading>
             <x-slot:subtitle>{{ __('messages.what_we_did') }}</x-slot>
             {{ __('messages.our_realizations') }}<span class="dot">.</span>
@@ -71,7 +71,7 @@
             <a href="tel:+48511844001">+48 511 844 001</a>
         </div>
     </section>
-    <section id="contact" class="contact__form__section home">
+    <section id="contact" class="contact__form__section home" id="contact">
         <x-heading>
             <x-slot:subtitle>{{ __('messages.fill_form') }}</x-slot>
             {{ __('messages.contact_us') }}<span class="dot">.</span>
