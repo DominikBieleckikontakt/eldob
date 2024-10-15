@@ -1,3 +1,6 @@
+import '../../resources/js/bootstrap';
+import 'bootstrap';
+
 var swiper = new Swiper(".mySwiper", {
     spaceBetween: 30,
     autoplay: {

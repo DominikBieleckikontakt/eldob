@@ -8,7 +8,7 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-  @vite(['public/sass/app.scss', 'resources/js/app.js', 'public/js/app.js'])
+  @vite(['public/sass/app.scss', 'public/js/app.js'])
   <link rel="shortcut icon" href="https://eldob.pl/src_eldob/img/eldob/ikona.ico">
 </head>
 <body>
