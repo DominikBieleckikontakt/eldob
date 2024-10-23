@@ -7,7 +7,7 @@
     </x-heading>
     <div class="offer__grid">
       @foreach($services as $service)
-      <a href="{{ route('offer', ['slug' => $service->slug, 'lang' => app()->getLocale()]) }}" class="offer__card slideIn">
+      <a href="{{ route('offer', ['slug' => $service->getTranslatedAttribute('slug', app()->getLocale(), 'pl'), 'lang' => app()->getLocale()]) }}" class="offer__card slideIn">
           <img src="{{ asset('storage/'.$service->image) }}" alt="{{ $service->getTranslatedAttribute('name', app()->getLocale(), 'pl') }}">
           <div class="offer__card__text">
             <div>
