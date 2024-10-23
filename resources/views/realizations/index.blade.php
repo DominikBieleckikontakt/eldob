@@ -19,7 +19,9 @@
                     {{ $realization->getTranslatedAttribute('title', app()->getLocale(), 'pl') }}
                 </div>
             </a>
+            
             @endforeach
+
         </div>
     </section>
 </x-layout>

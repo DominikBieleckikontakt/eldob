@@ -18,9 +18,6 @@
         <img alt="Logo Eldob" src="{{ asset('img/logo.png') }}" class="logo">
       </a>
       <div class="btns__container">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
         <div class="language-select-container bigger">
           <div class="custom-select m-auto">
             <div class="selected-item">
@@ -46,24 +43,26 @@
                     <!-- <span></span> -->
                 </a>
             </div>
+          </div>
         </div>
-      </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
       </div>
       <!-- <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0"> -->
-          @if(app()->getLocale() == 'pl')
-          {{ menu("menu_pl", "custom_menu") }}
-          @elseif(app()->getLocale() == 'en')
-          {{ menu("menu_en", "custom_menu") }}
-          @elseif(app()->getLocale() == 'de')
-          {{ menu("menu_de", "custom_menu") }}
-          @elseif(app()->getLocale() == 'cz')
-          {{ menu("menu_cz", "custom_menu") }}
-          @endif
+            @if(app()->getLocale() == 'pl')
+            {{ menu("menu_pl", "custom_menu") }}
+            @elseif(app()->getLocale() == 'en')
+            {{ menu("menu_en", "custom_menu") }}
+            @elseif(app()->getLocale() == 'de')
+            {{ menu("menu_de", "custom_menu") }}
+            @elseif(app()->getLocale() == 'cz')
+            {{ menu("menu_cz", "custom_menu") }}
+            @endif
         <!-- </ul>
       </div> -->
     </nav>
-    </div>
     <main>
       {{ $slot }}
     </main>
@@ -160,7 +159,7 @@
         <div>
           {{ __('messages.footer_author') }}
           <a href="https://digitalowa.pl/pl/">
-              <img src="https://eldob.pl/src_eldob/img/eldob/sdf-logo.png" /> Agencja Digitalowa.pl
+              <img src="{{ asset('img/digitalowa.png') }}" class="digitalowa__logo" /> Agencja Digitalowa.pl
           </a>
         </div>
       </div>
