@@ -570,6 +570,7 @@ nav {
             height: 250px;
             display: block;
             transition: transform 0.8s ease;
+            object-fit: cover;
         }
 
         &:hover img {
