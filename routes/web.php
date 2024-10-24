@@ -2,8 +2,28 @@
 
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\PagesController;
+
+Route::get('/clearcache', function () {
+    // Utworzenie symbolic linku dla storage
+    Artisan::call('storage:link');
+
+    // Czyszczenie cache aplikacji
+    Artisan::call('cache:clear');
+
+    // Czyszczenie cache konfiguracji
+    Artisan::call('config:clear');
+
+    // Czyszczenie cache widoków
+    Artisan::call('view:clear');
+
+    // Czyszczenie cache routingu
+    Artisan::call('route:clear');
+
+    return 'Cache został wyczyszczony, a link do storage utworzony!';
+});
 
 
 Route::get('/', function () {
@@ -26,47 +46,6 @@ Route::group(['prefix' => '{lang}', 'where' => ['lang' => 'pl|en|de|cz'], 'middl
     });
 });
 
-// Podstrony tekstowe: Czym sie zajmujemy, polityka prywatnosci, sprzedaz, certyfikaty
-
-// Route::get('/sprzedaz', function () {
-//     return view('sale');
-// });
-
-// Route::get('/realizacje', function () {
-//     return view('realizations.index');
-// });
-
-// Route::get('/realizacje/{id}', function () {
-//     return view('realizations.show');
-// });
-
-// Route::get('/referencje', function () {
-//     return view('reference');
-// });
-
-// Route::get('/czym-sie-zajmujemy', function () {
-//     return view('what');
-// });
-
-// Route::get('/kontakt', function () {
-//     return view('contact');
-// });
-
-// Route::get('/polityka-cookies', function () {
-//     return view('cookies');
-// });
-
-// Route::get('/polityka-prywatnosci', function () {
-//     return view('privacy');
-// });
-
-// Route::get('/nasze-certyfikaty', function () {
-//     return view('certificates');
-// });
-
-// Route::get('/kalkulator-wykonania-instalacji-elektrycznej', function () {
-//     return view('calculator');
-// });
 
 
 Route::group(['prefix' => 'admin'], function () {

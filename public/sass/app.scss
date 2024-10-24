@@ -24,16 +24,15 @@ body {
 
 nav {
     background-color: white;
-    box-shadow: 0 2px 1px -2px rgba(0, 0, 0, 0.393);    
+    box-shadow: 0 2px 1px -2px rgba(0, 0, 0, 0.393);
 
     .language-select-container {
         display: flex;
         justify-content: center;
 
-        @media(min-width: 600px) {
+        @media (min-width: 600px) {
             margin-inline: 1rem;
         }
-
 
         select {
             display: none;
@@ -80,7 +79,7 @@ nav {
         }
 
         .dropdown-item:hover {
-            background-color: #f0f0f0;  
+            background-color: #f0f0f0;
         }
 
         .dropdown-item img {
@@ -145,7 +144,7 @@ nav {
 @media (max-width: 1200px) {
     .nav__container {
         margin: 0 2rem;
-        padding: .5rem 0;
+        padding: 0.5rem 0;
     }
 }
 
@@ -189,7 +188,7 @@ nav {
 
 // OFFER PAGE BANNER
 
-.offer__banner__container{
+.offer__banner__container {
     position: relative;
     width: 100%;
     overflow: hidden;
@@ -200,7 +199,6 @@ nav {
         max-width: 100%;
         height: auto;
         object-fit: cover;
-
     }
 
     &::before {
@@ -249,12 +247,11 @@ nav {
                         text-decoration: underline;
                     }
                 }
-
             }
 
-            li+li::before {
+            li + li::before {
                 color: white;
-                content: '/\00a0';
+                content: "/\00a0";
             }
         }
     }
@@ -264,23 +261,22 @@ nav {
             width: 100%;
             z-index: 10;
             margin-top: 6.5rem;
-    
+
             img {
                 height: 20vh;
                 width: 100%;
             }
         }
-    
     }
-    
+
     @media (min-width: 500px) and (max-width: 1000px) {
         & {
             margin-top: 6.5rem;
-    
+
             .banner__text {
                 top: 50%;
             }
-    
+
             img {
                 height: 15vh;
                 object-fit: cover;
@@ -288,16 +284,16 @@ nav {
             }
         }
     }
-    
+
     @media (min-width: 1001px) {
         & {
             margin-top: 5.5rem;
             width: 100%;
-            
+
             .banner__text {
                 top: 55%;
             }
-    
+
             img {
                 object-fit: cover;
                 width: 100%;
@@ -305,7 +301,7 @@ nav {
             }
         }
     }
-    
+
     @media (min-width: 1300px) {
         & {
             .banner__text {
@@ -313,10 +309,7 @@ nav {
             }
         }
     }
-
 }
-
-
 
 // IMAGE BANNER (HOME PAGE)
 
@@ -357,12 +350,12 @@ nav {
             margin: 0 0 1rem 0;
             color: var(--primary-color);
         }
-    
+
         p {
             margin: 0;
             margin-bottom: 2.2rem;
         }
-    
+
         a {
             background-color: var(--primary-color);
             border: 0;
@@ -376,15 +369,13 @@ nav {
             transition-duration: 300ms;
             font-weight: 500;
             text-decoration: none;
-    
+
             &:hover {
                 background-color: var(--accent-color);
             }
         }
     }
 }
-
-
 
 @media (max-width: 500px) {
     .banner__container {
@@ -401,7 +392,6 @@ nav {
             }
         }
     }
-
 }
 
 @media (max-width: 1000px) {
@@ -470,16 +460,15 @@ nav {
     opacity: 0;
     visibility: hidden;
     transform: translateY(10%);
-    transition: opacity .6s ease, transform .8s ease;
+    transition: opacity 0.6s ease, transform 0.8s ease;
 }
 
 .slideIn-visible {
     opacity: 1; /* Full opacity */
     visibility: visible; /* Visible */
     transform: translateY(0); /* Original position */
-    transition: opacity .8s ease, transform .9s ease; /* Visibility transition is immediate */
+    transition: opacity 0.8s ease, transform 0.9s ease; /* Visibility transition is immediate */
 }
-
 
 // REALIZATION PAGE
 
@@ -543,6 +532,7 @@ nav {
             height: 250px;
             display: block;
             transition: transform 0.8s ease;
+            object-fit: cover;
         }
 
         &:hover img {
@@ -659,7 +649,8 @@ nav {
         color: #ccc;
     }
 
-    .prev-arrow, .next-arrow {
+    .prev-arrow,
+    .next-arrow {
         position: absolute;
         top: 57.5%;
         transform: translateY(-50%);
@@ -670,22 +661,25 @@ nav {
         user-select: none;
         transition: 0.3s;
     }
-    
+
     .prev-arrow {
         left: 10px;
     }
-    
+
     .next-arrow {
         right: 10px;
     }
-    
-    .prev-arrow:hover, .next-arrow:hover {
+
+    .prev-arrow:hover,
+    .next-arrow:hover {
         color: #ccc;
     }
 }
 
 @media (min-width: 1024px) {
-    .realizations__gallery, .realizations__gallery__home, .realization__gallery {
+    .realizations__gallery,
+    .realizations__gallery__home,
+    .realization__gallery {
         grid-template-columns: repeat(3, 1fr);
         .btn__container {
             grid-column: span 3;
@@ -694,7 +688,9 @@ nav {
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
-    .realizations__gallery, .realizations__gallery__home, .realization__gallery {
+    .realizations__gallery,
+    .realizations__gallery__home,
+    .realization__gallery {
         grid-template-columns: repeat(2, 1fr);
         .btn__container {
             grid-column: span 2;
@@ -703,7 +699,8 @@ nav {
 }
 
 @media (max-width: 767px) {
-    .realizations__gallery, .realizations__gallery__home {
+    .realizations__gallery,
+    .realizations__gallery__home {
         grid-template-columns: 1fr;
     }
 }
@@ -780,14 +777,14 @@ nav {
         margin-bottom: 2.5rem;
     }
 
-    >div {
+    > div {
         margin: 0;
     }
 
     .btn__container {
         display: flex;
         justify-content: end;
-        
+
         @media (min-width: 768px) {
             button {
                 max-width: 10rem;
@@ -824,10 +821,11 @@ nav {
             font-size: 0.8rem;
         }
 
-        input, textarea {
+        input,
+        textarea {
             padding: 10px;
             border: 1px solid #ccc;
-            border-radius: 4px; 
+            border-radius: 4px;
         }
 
         div {
@@ -854,7 +852,7 @@ footer {
         max-width: 1100px;
         margin-inline: auto;
 
-        >div {
+        > div {
             display: grid;
             row-gap: 2rem;
         }
@@ -877,7 +875,6 @@ footer {
             text-wrap: pretty;
         }
     }
-    
 
     .footer__nav-container,
     .footer__services-container,
@@ -895,17 +892,15 @@ footer {
             margin: 0;
             padding: 0;
             display: grid;
-            gap: .5rem;
+            gap: 0.5rem;
         }
 
         li {
             list-style-type: none;
-            
         }
 
-
-
-        a, p {
+        a,
+        p {
             color: #efefefd6;
             text-decoration: none;
             font-size: 0.9em;
@@ -942,10 +937,8 @@ footer {
             img {
                 width: 16px;
             }
-
         }
     }
- 
 }
 
 @media (min-width: 600px) {
@@ -1020,10 +1013,10 @@ footer {
 .offer__section {
     display: grid;
 
-   .swiper {
+    .swiper {
         width: 100%;
-        padding: .5rem 0rem;
-   }
+        padding: 0.5rem 0rem;
+    }
 
     .btn__container {
         width: 100%;
@@ -1067,7 +1060,7 @@ footer {
 .offer__card {
     background-color: white;
     display: grid;
-    grid-template-rows: .5fr 1fr;
+    grid-template-rows: 0.5fr 1fr;
     row-gap: 0;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -1087,7 +1080,7 @@ footer {
         margin: 15px;
         margin-inline: auto;
         min-width: 10rem;
-        padding: .5rem;
+        padding: 0.5rem;
     }
 
     a {
@@ -1644,8 +1637,13 @@ footer {
 .call__action {
     width: 100%;
     height: 12rem;
-    background: rgb(255,203,43);
-    background: linear-gradient(90deg, rgba(255,203,43,1) 0%, rgba(255,195,7,1) 50%, rgba(238,181,0,1) 100%);
+    background: rgb(255, 203, 43);
+    background: linear-gradient(
+        90deg,
+        rgba(255, 203, 43, 1) 0%,
+        rgba(255, 195, 7, 1) 50%,
+        rgba(238, 181, 0, 1) 100%
+    );
     transform: skewY(-2deg);
     display: flex;
     justify-content: center;
@@ -1653,7 +1651,7 @@ footer {
     text-align: center;
     margin-bottom: 6rem;
 
-    >div {
+    > div {
         transform: skewY(2deg);
         padding-inline: 3rem;
         display: flex;

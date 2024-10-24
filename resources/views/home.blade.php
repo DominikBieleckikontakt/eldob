@@ -53,10 +53,10 @@
         </x-heading>
         <div class="realizations__gallery__home">
             @foreach($realizations as $realization)
-            <a href="{{ route('realization', ['slug' => $realization->getTranslatedAttribute('slug', app()->getLocale()), 'lang' => app()->getLocale()]) }}" class="realizations__item slideIn">
-                <img src="{{ asset('storage/'.$realization->image) }}" alt="{{ $realization->getTranslatedAttribute('title', app()->getLocale(), 'pl') }}">
-                <div class="overlay">{{ $realization->getTranslatedAttribute('title', app()->getLocale(), 'pl') }}</div>
-            </a>
+            <div class="realizations__item slideIn">
+                <img src="{{ asset('storage/'.$realization->image) }}" alt="{{ $realization->getTranslatedAttribute('name', app()->getLocale(), 'pl') }}">
+                <div class="overlay">{{ $realization->getTranslatedAttribute('name', app()->getLocale(), 'pl') }}</div>
+            </div>
             @endforeach
             <div class="btn__container">
                 <button>

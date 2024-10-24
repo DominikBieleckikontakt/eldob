@@ -9,5 +9,5 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Realization extends Model
 {
     use HasFactory, Translatable;
-    protected $translatable = ['title', 'description', 'demands', 'client', 'place', 'slug'];
+    protected $translatable = ['name'];
 }
